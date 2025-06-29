@@ -21,6 +21,21 @@ const scissorsBtnEl = document.querySelector('#scissors');
 
 /*-------------------------------- Functions --------------------------------*/
 
+function getComputerChoice(){
+    let randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+function play(){
+    computerChoice= getComputerChoice();
+    console.log(computerChoice);
+    
+    render();
+}
+
+function render(){
+
+}
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -28,3 +43,5 @@ const scissorsBtnEl = document.querySelector('#scissors');
 document.querySelector('#rock').addEventListener('click', play);
 document.querySelector('#paper').addEventListener('click', play);
 document.querySelector('#scissors').addEventListener('click', play);
+
+play();
