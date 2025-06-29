@@ -18,6 +18,10 @@ header {
 }
 
 button {
+    margin: 10px;
+  font-size: 40px;
+}
+.gameButtons{
   margin: 10px;
   font-size: 40px;
   background-color: transparent;

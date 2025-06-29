@@ -28,6 +28,7 @@ function getComputerChoice(){
 
 function play(event){
     if(event){
+        document.getElementById("resetButton").style.display="block";
         computerChoice= getComputerChoice();
         console.log(computerChoice);
         
@@ -40,7 +41,11 @@ function play(event){
 }
 
 function render(computerChoice, playerCh, msgR){
+    if(computerChoice != undefined){
     resultDisplayEl.textContent = `Computer chose: ${computerChoice} and you choose ${playerCh} and ${msgR}`;
+    } else {
+        resultDisplayEl.textContent = 'Game is reset.';
+    }
 }
 
 function compare(computerCh, playerCh){
@@ -72,11 +77,17 @@ function compare(computerCh, playerCh){
     } 
     }
 }
+
+const resetGame = () => {
+  playerChoice = null;
+  computerChoice = null;
+  msg = '';  // also clear any displayed messages or game outcomes on the page.
+  render();
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
 rockBtnEl.addEventListener('click', play); //automatically passes event function if possible
 paperBtnEl.addEventListener('click', play);
 scissorsBtnEl.addEventListener('click', play);
 
-
-play();
+document.querySelector('#resetButton').addEventListener('click', resetGame);
