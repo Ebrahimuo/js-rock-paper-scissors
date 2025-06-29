@@ -14,6 +14,10 @@ let msg;
 
 const resultDisplayEl = document.querySelector('#result-display');
 
+const rockBtnEl = document.querySelector('#rock');
+const paperBtnEl = document.querySelector('#paper');
+const scissorsBtnEl = document.querySelector('#scissors');
+
 
 /*-------------------------------- Functions --------------------------------*/
 
