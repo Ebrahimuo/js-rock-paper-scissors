@@ -26,22 +26,57 @@ function getComputerChoice(){
     return choices[randomIndex];
 }
 
-function play(){
-    computerChoice= getComputerChoice();
-    console.log(computerChoice);
-    
-    render();
+function play(event){
+    if(event){
+        computerChoice= getComputerChoice();
+        console.log(computerChoice);
+        
+        console.log("Event id is: " + event.target.id)
+
+        console.log("Elements are " + computerChoice, event.target.id + compare(computerChoice, event.target.id));
+        render(computerChoice, event.target.id, compare(computerChoice, event.target.id));
+    }
+
 }
 
-function render(){
-
+function render(computerChoice, playerCh, msgR){
+    resultDisplayEl.textContent = `Computer chose: ${computerChoice} and you choose ${playerCh} and ${msgR}`;
 }
 
-
+function compare(computerCh, playerCh){
+    if(computerCh=='scissors'){
+        if (playerCh=='rock'){
+            return "Player Won.";
+        } else if (playerCh=='paper'){
+            return "Computer Won."
+        }  else {
+        return "It's a draw.";
+        
+        }
+        
+    } else if (computerCh=='rock'){
+        if (playerCh=='paper') {
+            return "Player Won.";
+        } else if (playerCh=='scissors'){
+            return "Computer Won."
+        }  else {
+        return "It's a draw.";
+        }
+    } else if (computerCh=='paper'){
+        if (playerCh=='scissors') {
+            return "Player Won.";
+        } else if (playerCh=='rock') {
+            return "Computer Won."
+        } else {
+        return "It's a draw."
+    } 
+    }
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
-document.querySelector('#rock').addEventListener('click', play);
-document.querySelector('#paper').addEventListener('click', play);
-document.querySelector('#scissors').addEventListener('click', play);
+rockBtnEl.addEventListener('click', play); //automatically passes event function if possible
+paperBtnEl.addEventListener('click', play);
+scissorsBtnEl.addEventListener('click', play);
+
 
 play();
